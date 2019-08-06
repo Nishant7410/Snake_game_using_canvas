@@ -18,15 +18,21 @@
       background: #00F260;
       background: -webkit-linear-gradient(to right, #0575E6, #00F260);
       background: linear-gradient(to right, #0575E6, #00F260);
-
+        }
+        #game
+        {
+            font-size:50px;
+            margin-top:10px;
         }
     </style>
 </head>
 <body>
    <center>
-    <canvas class="mycanvas" width="300" height="300" style="background:#3e3e3e;border:1px solid grey;margin-top:150px"></canvas><br>
+   <h1 id="game">Snake Game</h1>
+    <canvas class="mycanvas" width="300" height="300" style="background:#3e3e3e;border:1px solid grey;margin-top:60px"></canvas><br>
     <score id="score"></score>
     <h4 id="mypause" style="color:red;display:none">Pause</h4>
+    <h1 id="over"></h1>
     </center> 
 </body>
 <script type="text/javascript" src="Fruit.js"></script>

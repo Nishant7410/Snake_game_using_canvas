@@ -5,8 +5,13 @@ var row=canvas.height/scale;
 var col=canvas.width/scale;
 var snake;
 var fruit;
-var interval,x=150;
+var interval,x=100;
 var pause=true;
+var sound=new Audio();
+var out=new Audio();
+out.src="B.mp3";
+sound.src="A.mp3";
+var c=0;
 var score=document.querySelector('#score');
 var mypause=document.querySelector('#mypause');
 (function setup(){
@@ -19,12 +24,25 @@ var mypause=document.querySelector('#mypause');
     interval=window.setInterval(()=>{
         ctx.clearRect(0,0,canvas.width,canvas.height);
         fruit.draw();
-        snake.update();
         snake.draw();
+        snake.update();
         if(snake.eat(fruit))
             fruit.piclocation();
+        if(score.innerHTML=="Score: 10")
+            {
+            x=60;
+            clearInterval(interval);
+            start();
+            }
+        if(score.innerHTML=="Score: 100")
+            {
+            x=40;
+            clearInterval(interval);
+            start();
+            }
     },x)}
     window.addEventListener('keydown',((e)=>{
+      //  console.log("down");
     if(e.keyCode==32)
         {
             if(pause)
@@ -47,4 +65,5 @@ var mypause=document.querySelector('#mypause');
     snake.changedirection(dir);
     }
 }));
+
 }());

@@ -8,6 +8,9 @@ function Fruit(){
     this.draw=function()
     {
         ctx.fillStyle='#2483C0';
+        if(c==5)
+        ctx.fillRect(this.x,this.y,13,13);
+        else
         ctx.fillRect(this.x,this.y,scale,scale);
     }
 }

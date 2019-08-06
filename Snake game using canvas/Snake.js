@@ -30,7 +30,10 @@ function Snake()
             if(this.x==this.tail[j].x&&this.y==this.tail[j].y)
                 {
                     clearInterval(interval);
-                    alert("Game over");
+                    out.play();
+                    score.setAttribute("style","display:block");
+                    mypause.setAttribute("style","display:none");
+                    document.getElementById('over').innerHTML="Game Over";
                 }
         if(this.x>canvas.width)
             this.x=0;
@@ -67,12 +70,24 @@ function Snake()
     {
         if(this.x==fruit.x&&this.y==fruit.y)
             {
-            this.total++;
+            
+                if(c==5){       
             score.innerHTML="Score: ";    
-            score.append(this.total*5);    
+            score.append((this.total+2)*5);
+                    this.total++;
+                    c=0;
+                }
+                else{
+                this.total++;    
+            score.innerHTML="Score: ";    
+            score.append(this.total*5);
+            c++;
+                }
+            sound.play();    
             return true;
             }
         else
             return false;
+        
     }
 }
